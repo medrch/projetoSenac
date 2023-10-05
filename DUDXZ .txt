@@ -1,0 +1,153 @@
+banco de dados não existe sem sql
+char - campos mais simples
+varchar
+SYSDBA masterkey (banco de dados)
+
+números= caractéres
+
+CREATE TABLE cliente(
+id_cliente int not null
+nome varchar(60),
+fone varchar(15),
+primary key(id_cliente)
+);
+
+CREATE TABLE cliente_particlar(
+id_clienteparti int not null,
+id_cliente int,
+cpf VARCHAR(14),
+PRIMARY KEY(id_clienteparti),
+FOREIGN KEY(id_cliente) REFERENCES cliente(id_cliente)
+);
+
+CREATE TABLE cliente_empresa(
+id_clienteempre int not null,
+id_cliente int,
+cpf VARCHAR(14),
+PRIMARY KEY(id_clienteempre),
+FOREIGN KEY(id_cliente) REFERENCES cliente(id_cliente)
+);
+
+CREATE TABLE taxi(
+id_taxi int not null, 
+placa VARCHAR(7), 
+marca VARCHAR(30),
+modelo VARCHAR(30),
+anofab VARCHAR(4),
+PRIMARY KEY(id_taxi)
+);
+
+CREATE TABLE CORRIDA(
+ID_CORRIDA integer NOT null, 
+ID_CLIENTE integer, 
+ID_TAXI integer, 
+data date,
+primary KEY(ID_CORRIDA),
+foreign KEY(ID_CLIENTE) REFERENCES cliente (ID_CLIENTE),
+foreign key(ID_TAXI) references TAXI(ID_TAXI)
+);
+
+ex:insert into tabela(referencias) valores(valores);
+insert into cliente(id_cliente, nome, fone) values(1, 'Gustavo', '9656632');
+
+ALTER TABLE CLIENTE
+ADD CASADO CHAR(3)
+
+ALTER TABLE CLIENTE DROP EMAIL
+
+ALTER TABLE CLIENTE
+ADD CIDADE CHAR(30)
+
+ALTER TABLE CLIENTE
+ADD SALARIO NUMERIC(9,2)
+
+DROP TABLE <tabela>
+EXCLUIR TABELA EXISTENTE
+
+SELECIONAR TODOS OS CAMPOS ESPECIFICADOS DA TABELA:
+select * from cliente (TODOS)
+select nome from cliente
+select nome, salario from cliente
+
+Select * from cliente where salario <5000
+Select * from cliente where salario >3230 or salario <5000
+
+Select * from cliente order by nome desc
+Select * from cliente order by nome asc
+Select * from cliente order by ID_CLIENTE asc
+
+select SUM(column_name)
+FROM table_name
+where condition;
+select sum(salario) from cliente
+select sum(salario*2) from cliente
+select sum(salario) from cliente where salario <3000
+
+SELECT AVG(column_name) MEDIA DE VALORES
+FROM table_name
+WHERE condit
+select avg(salario) from cliente;
+select avg(salario) from cliente WHERE SALARIO >7000
+
+SELECT * FROM CLIENTE WHERE NOME = 'X'
+
+ALTER TABLE FORNECEDOR ALTER ID_FORNECEDOR TO ID_FORN
+
+select c.nome, f.nomefun, f.setorfunc p.descricao from venda v, cliente c, funcionario f
+where v.id_cliente = c.id_cliente and v.id_funcionario = f.id_funcionario
+and v.id_produto = p.id_produto
+select cliente.nome, venda.data from venda, cliente
+
+where venda.id_cliente = cliente.id_cliente
+
+
+BASS - Back-end como serviço (backend as a service)
+serviço pronto em nuvem
+SAAS - Software as a service
+software disponibilizado como seviço pela internet
+
+
+CMD (prompt) windows+r
+Md/cria pasta
+Cd (nome da pasta)/entra pasta
+Rd/apaga pasta
+dir/lista pasta
+tree/lista arvore
+cd../sair
+cls/limpa a tela
+mkdir teste/criar pasta
+
+GIT - sistema de controle de versionamento
+commits - mudança individual de um ou mais arquivos
+diff - diferença entre dois commits, descreve o que foi adicionado ou removido
+pull - recuperação de novas mudanças
+pull request - solicitação de alteração
+push - envio de commits locais para remoto
+remote - versão de algo hospedado em um servidor
+repository - pasta raiz de um projeto
+ssh key - identificar-se no acesso a um repositorio remoto, certificação digital
+
+fetch - recupera informações mais recentes 
+
+NOSQL
+Não relacional. Alta escalabilidade e alta disponibilidade. Dado ar,mazenados com usados nos aplicativos.
+
+CMD
+DIR/? = HELPER
+COPY*.PDF C:/TEMP = COPIA ARQUIVOS
+DEL *.PDF = ARQUIVOS
+COPY A:*.*C: = COPIAR
+REN IMAGEM.JPG FOTO.JPG = RENOMEAR
+RD TESTE /S = CLAUSULA
+MD CRIA
+TREE = ARVORE DE DIRETORIO
+CTRLC - PARAR ARVORE
+
+
+git init
+git config
+git status
+git add .
+git commit -m "mensagem clara"
+"Update past"
+"new archive"
